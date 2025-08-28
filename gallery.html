@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Skin, Hair & Laser Clinic</title>
+  <link rel="stylesheet" href="css/merged-styles.css" />
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Bungee&family=Tenor+Sans&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ROOT RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* font-family: "Tenor Sans", sans-serif; */
+    }
+
+    body {
+      font-family: "Tenor Sans", sans-serif;
+      line-height: 1.6;
+      color: #2D3142;
+      background: #F5F4F0;
+      overflow-x: hidden;
+    }
+
+    /* HERO SECTION - Immersive Full-Screen Experience */
+    .gallery-hero {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(45deg, rgba(168, 196, 162, 0.3), rgba(45, 49, 66, 0.7)),
+        url('images/slider/pexels-rodolfoclix-1615841.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+
+
+    /* Alternative: If you want to override any existing about-hero styles */
+    /* .about-hero {
+      background-image:url('images/DrSai/IMG-20250820-WA0013.jpg') !important;
+      background-size: auto !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    } */
+    .about-hero {
+      background: url('images/DrSai/gallery.jpg') center/cover no-repeat !important;
+    }
+
+    .gallery-hero .hero-content {
+      position: relative;
+      z-index: 3;
+      color: #FFF;
+      animation: heroReveal 2s ease forwards;
+      padding: 0 2rem;
+      max-width: 800px;
+    }
+
+    .gallery-hero .hero-heading {
+      font-size: clamp(2rem, 8vw, 6rem);
+      letter-spacing: 4px;
+      font-weight: normal;
+      text-shadow: 1.2px 0 0 white;
+      font-family: "Garet", sans-serif;
+      position: relative;
+      background-color: white;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-hero .hero-heading::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -20px;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #A8C4A2, transparent);
+      border-radius: 4px;
+      animation: pulse 3s infinite;
+    }
+
+    .gallery-hero .hero-subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.8rem);
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-top: 2rem;
+      opacity: 0;
+      animation: subtitleFade 2s ease 0.8s forwards;
+    }
+
+    /* Remove floating shapes and unused animations */
+
+    /* GALLERY SECTION - Masonry Grid Layout */
+    .gallery-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #F5F4F0 0%, rgba(168, 196, 162, 0.1) 100%);
+      position: relative;
+    }
+
+    .gallery-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #A8C4A2, transparent);
+    }
+
+    .gallery-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 5rem;
+      position: relative;
+    }
+
+    .gallery-heading {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #2D3142;
+      font-weight: normal;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+      text-shadow: 1.2px 0 0 #2D3142;
+      font-family: "Garet", sans-serif;
+    }
+
+    .gallery-heading::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -20px;
+      width: calc(100% + 40px);
+      height: calc(100% + 20px);
+      background: linear-gradient(45deg, rgba(168, 196, 162, 0.1), transparent);
+      border-radius: 15px;
+      z-index: -1;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    .gallery-subtitle {
+      font-size: 1.2rem;
+      color: rgba(45, 49, 66, 0.7);
+      font-weight: 300;
+      letter-spacing: 1px;
+      font-family: "PT Serif", serif;
+    }
+
+    /* Masonry Grid */
+    .gallery-grid {
+      display: grid;
+      /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+      grid-template-columns: repeat(3, 350px);
+      gap: 4.2rem;
+      align-items: start;
+      justify-content: center;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 40px rgba(168, 196, 162, 0.2);
+      background: #fff;
+      height: 400px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: brightness(1.1) contrast(1.1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          transparent 50%,
+          rgba(0, 0, 0, 0.4) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+
+    .gallery-item .overlay-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+      /* background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); */
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+      z-index: 3;
+      font-family: "Tenor Sans", sans-serif;
+    }
+
+    .gallery-item:hover .overlay-content {
+      transform: translateY(0);
+    }
+
+    .overlay-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: normal;
+      text-shadow: 1.2px 0 0 white;
+      font-family: "Garet", sans-serif;
+    }
+
+    .overlay-content p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.4;
+      font-family: "PT Serif", serif;
+      /* color: rebeccapurple; */
+    }
+
+    /* Enhanced Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      animation: lightboxFadeIn 0.3s ease;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .lightbox img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: imageZoom 0.4s ease;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -50px;
+      right: -10px;
+      font-size: 3rem;
+      color: #A8C4A2;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-close:hover {
+      color: #fff;
+      background: rgba(168, 196, 162, 0.3);
+      transform: scale(1.1);
+    }
+
+    /* Scroll Progress Indicator */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(168, 196, 162, 0.2);
+      z-index: 1000;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #A8C4A2, #2D3142);
+      width: 0;
+      transition: width 0.1s ease;
+    }
+
+    /* ANIMATIONS */
+    @keyframes heroReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes subtitleFade {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1.2);
+      }
+    }
+
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        opacity: 0.1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes lightboxFadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes imageZoom {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 992px) {
+      .gallery-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .gallery-item:nth-child(odd) {
+        transform: none;
+      }
+
+      .gallery-item {
+        height: 300px;
+      }
+
+      .gallery-item img {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-hero {
+        height: 80vh;
+      }
+
+      .gallery-section {
+        padding: 3rem 1rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        min-height: 250px;
+        height: 400px;
+        /* max-width: 600px !important;
+        margin: 0 auto; */
+      }
+
+      .gallery-item img {
+        height: 400px;
+      }
+
+      .lightbox-close {
+        top: -40px;
+        right: 0;
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-header {
+        margin-bottom: 3rem;
+      }
+
+      .overlay-content {
+        padding: 1.5rem;
+      }
+
+      .overlay-content h3 {
+        font-size: 1.1rem;
+      }
+
+      .overlay-content p {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Dark mode support */
+
+    /* Video Reels Section */
+    .video-reels-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #a8c4a2 35%, #fff 75%);
+      margin-top: 60px;
+    }
+
+    .video-reels-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .video-reels-section .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .video-reels-section .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 15px;
+      font-family: 'Georgia', serif;
+    }
+
+    .video-reels-section .section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Video Grid */
+    .video-reels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 80px;
+      margin-top: 50px;
+    }
+
+    /* Individual Video Reel Item */
+    .video-reel-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+    }
+
+    .video-reel-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Video Container */
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .reel-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .video-reel-item:hover .reel-video {
+      transform: scale(1.05);
+    }
+
+    /* Play Overlay */
+    .play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+
+    .video-reel-item:hover .play-overlay {
+      opacity: 0.8;
+    }
+
+    .video-reel-item.playing .play-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .play-button {
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8B6F47;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .play-button:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: scale(1.1);
+    }
+
+    .play-button svg {
+      margin-left: 3px;
+      transition: transform 0.3s ease;
+    }
+
+    .play-button:hover svg {
+      transform: scale(1.2);
+    }
+
+    /* Video Overlay Content */
+    .video-overlay-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+      padding: 30px 20px 20px;
+      z-index: 3;
+    }
+
+    .video-overlay-content h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .video-overlay-content p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 8px;
+      color: #f0f0f0;
+    }
+
+    .video-duration {
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 2px 8px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Video Controls (when playing) */
+    .video-controls {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      z-index: 4;
+    }
+
+    .video-reel-item.playing .video-controls {
+      display: flex;
+    }
+
+    .control-button {
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .control-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .volume-control {
+      width: 80px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .volume-control::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Loading State */
+    .video-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 0.9rem;
+      z-index: 5;
+      display: none;
+    }
+
+    .video-reel-item.loading .video-loading {
+      display: block;
+    }
+
+    .video-reel-item.loading .play-overlay {
+      opacity: 0.6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .video-reels-section {
+        padding: 60px 0;
+      }
+
+      .video-reels-section .section-title {
+        font-size: 2rem;
+      }
+
+      .video-reels-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .video-container {
+        height: 220px;
+      }
+
+      .play-button {
+        width: 60px;
+        height: 60px;
+      }
+
+      .video-overlay-content {
+        padding: 25px 15px 15px;
+      }
+
+      .video-overlay-content h3 {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .video-reels-section .container {
+        padding: 0 15px;
+      }
+
+      .video-reels-grid {
+        gap: 20px;
+      }
+
+      .video-container {
+        height: 200px;
+      }
+
+      .video-overlay-content {
+        padding: 20px 12px 12px;
+      }
+
+      .play-button {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <div id="preloader">
+    <div class="preloader-content">
+      <img src="images/newBuff.webp" alt="Skin Rejuvenation" />
+      <!-- <p class="preloader-text">Rejuvenating Your Glow...</p> -->
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="logo"></div>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Treatments</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-heading">Gallery</h1>
+      <p class="hero-tagline">Elevating Beauty Through Science & Care</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <!-- <section class="gallery-section" data-aos="fade-up">
+    <div class="gallery-container">
+      <div class="gallery-header">
+        <h2 class="gallery-heading">Our Clinic Showcase</h2>
+        <p class="gallery-subtitle">Capturing moments of beauty, health, and transformation</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/1.jfif" alt="Advanced Treatment Room" />
+          <div class="overlay-content">
+            <h3>Treatment Excellence</h3>
+            <p>State-of-the-art facilities designed for your comfort</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+          <img src="images/11.jfif" alt="Consultation Area" />
+          <div class="overlay-content">
+            <h3>Expert Consultation</h3>
+            <p>Personalized care from our experienced professionals</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+          <img src="images/4.jfif" alt="Laser Treatment" />
+          <div class="overlay-content">
+            <h3>Laser Technology</h3>
+            <p>Cutting-edge laser treatments for optimal results</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+          <img src="images/5.jfif" alt="Skin Care" />
+          <div class="overlay-content">
+            <h3>Skincare Solutions</h3>
+            <p>Comprehensive treatments for radiant, healthy skin</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+          <img src="images/6.jfif" alt="Hair Treatment" />
+          <div class="overlay-content">
+            <h3>Hair Restoration</h3>
+            <p>Advanced hair treatments for natural-looking results</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+          <img src="images/10.jfif" alt="Reception Area" />
+          <div class="overlay-content">
+            <h3>Welcoming Space</h3>
+            <p>A serene environment where your journey begins</p>
+          </div>
+        </div>
+        <section class="video-reels-section">
+          <div class="container">
+            <div class="section-header">
+              <h2 class="section-title">Our Treatment Stories</h2>
+              <p class="section-subtitle">Watch real transformations and treatment experiences</p>
+            </div>
+
+            <div class="video-reels-grid">
+              <div class="video-reel-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="video-container">
+                  <video src="videos/reel1.mp4" poster="images/video-thumb-1.jpg" loop muted playsinline
+                    class="reel-video">
+                  </video>
+                  <div class="play-overlay">
+                    <div class="play-button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="video-overlay-content">
+                    <h3>Laser Hair Removal</h3>
+                    <p>Complete transformation journey</p>
+                    <span class="video-duration">0:30</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="video-reel-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="video-container">
+                  <video src="videos/reel2.mp4" poster="images/video-thumb-2.jpg" loop muted playsinline
+                    class="reel-video">
+                  </video>
+                  <div class="play-overlay">
+                    <div class="play-button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="video-overlay-content">
+                    <h3>Skin Rejuvenation</h3>
+                    <p>Advanced facial treatments</p>
+                    <span class="video-duration">0:45</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="video-reel-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="video-container">
+                  <video src="videos/reel3.mp4" poster="images/video-thumb-3.jpg" loop muted playsinline
+                    class="reel-video">
+                  </video>
+                  <div class="play-overlay">
+                    <div class="play-button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="video-overlay-content">
+                    <h3>Hair Transplant</h3>
+                    <p>Natural restoration process</p>
+                    <span class="video-duration">1:15</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="video-reel-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="video-container">
+                  <video src="videos/reel4.mp4" poster="images/video-thumb-4.jpg" loop muted playsinline
+                    class="reel-video">
+                  </video>
+                  <div class="play-overlay">
+                    <div class="play-button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="video-overlay-content">
+                    <h3>Acne Treatment</h3>
+                    <p>Clear skin solutions</p>
+                    <span class="video-duration">0:35</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="video-reel-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="video-container">
+                  <video src="videos/reel5.mp4" poster="images/video-thumb-5.jpg" loop muted playsinline
+                    class="reel-video">
+                  </video>
+                  <div class="play-overlay">
+                    <div class="play-button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="video-overlay-content">
+                    <h3>Anti-Aging</h3>
+                    <p>Youthful skin revival</p>
+                    <span class="video-duration">0:50</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="video-reel-item" data-aos="fade-up" data-aos-delay="600">
+                <div class="video-container">
+                  <video src="videos/reel6.mp4" poster="images/video-thumb-6.jpg" loop muted playsinline
+                    class="reel-video">
+                  </video>
+                  <div class="play-overlay">
+                    <div class="play-button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M8 5v14l11-7z" fill="currentColor" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="video-overlay-content">
+                    <h3>Consultation</h3>
+                    <p>Expert advice & care</p>
+                    <span class="video-duration">1:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="gallery-section" data-aos="fade-up">
+    <div class="gallery-container">
+      <div class="gallery-header">
+        <h2 class="gallery-heading">Our Clinic Showcase</h2>
+        <p class="gallery-subtitle">Capturing moments of beauty, health, and transformation</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/1.jfif" alt="Advanced Treatment Room" />
+          <div class="overlay-content">
+            <h3>Treatment Excellence</h3>
+            <p>State-of-the-art facilities designed for your comfort</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+          <img src="images/11.jfif" alt="Consultation Area" />
+          <div class="overlay-content">
+            <h3>Expert Consultation</h3>
+            <p>Personalized care from our experienced professionals</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+          <img src="images/4.jfif" alt="Laser Treatment" />
+          <div class="overlay-content">
+            <h3>Laser Technology</h3>
+            <p>Cutting-edge laser treatments for optimal results</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+          <img src="images/5.jfif" alt="Skin Care" />
+          <div class="overlay-content">
+            <h3>Skincare Solutions</h3>
+            <p>Comprehensive treatments for radiant, healthy skin</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+          <img src="images/6.jfif" alt="Hair Treatment" />
+          <div class="overlay-content">
+            <h3>Hair Restoration</h3>
+            <p>Advanced hair treatments for natural-looking results</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+          <img src="images/10.jfif" alt="Reception Area" />
+          <div class="overlay-content">
+            <h3>Welcoming Space</h3>
+            <p>A serene environment where your journey begins</p>
+          </div>
+        </div>
+
+        <!-- Video Reels Section moved here after gallery items -->
+
+      </div>
+      <!-- <section class="video-reels-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Treatment Stories</h2>
+            <p class="section-subtitle">Watch real transformations and treatment experiences</p>
+          </div>
+
+          <div class="video-reels-grid">
+            <div class="video-reel-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="video-container">
+                <video src="./images/DrSai/Videos/VID-20250821-WA0001.mp4" loop muted playsinline class="reel-video">
+                </video>
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 5v14l11-7z" fill="currentColor" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-overlay-content">
+                  <h3>Laser Hair Removal</h3>
+                  <p>Complete transformation journey</p>
+                  <span class="video-duration">0:30</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-reel-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="video-container">
+                <video src="./images/DrSai/Videos/VID-20250821-WA0002.mp4" loop muted playsinline class="reel-video">
+                </video>
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 5v14l11-7z" fill="currentColor" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-overlay-content">
+                  <h3>Skin Rejuvenation</h3>
+                  <p>Advanced facial treatments</p>
+                  <span class="video-duration">0:45</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-reel-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="video-container">
+                <video src="./images/DrSai/Videos/VID-20250821-WA0003.mp4" loop muted playsinline class="reel-video">
+                </video>
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 5v14l11-7z" fill="currentColor" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-overlay-content">
+                  <h3>Hair Transplant</h3>
+                  <p>Natural restoration process</p>
+                  <span class="video-duration">1:15</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-reel-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="video-container">
+                <video src="./images/DrSai/Videos/VID-20250821-WA0004.mp4" loop muted playsinline class="reel-video">
+                </video>
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 5v14l11-7z" fill="currentColor" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-overlay-content">
+                  <h3>Acne Treatment</h3>
+                  <p>Clear skin solutions</p>
+                  <span class="video-duration">0:35</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-reel-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="video-container">
+                <video src="./images/DrSai/Videos/VID-20250821-WA0005.mp4" loop muted playsinline class="reel-video">
+                </video>
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 5v14l11-7z" fill="currentColor" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-overlay-content">
+                  <h3>Anti-Aging</h3>
+                  <p>Youthful skin revival</p>
+                  <span class="video-duration">0:50</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-reel-item" data-aos="fade-up" data-aos-delay="600">
+              <div class="video-container">
+                <video src="./images/DrSai/Videos/WhatsApp Video 2025-08-21 at 15.12.17_c5ca817c.mp4" loop muted
+                  playsinline class="reel-video">
+                </video>
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M8 5v14l11-7z" fill="currentColor" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="video-overlay-content">
+                  <h3>Consultation</h3>
+                  <p>Expert advice & care</p>
+                  <span class="video-duration">1:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+    </div>
+  </section>
+
+  <!-- Enhanced Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <span class="lightbox-close" id="lightboxClose">&times;</span>
+      <img id="lightboxImg" src="" alt="Preview" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h2>Skin, Hair & Laser Clinic</h2>
+          <p>Your trusted destination for advanced skin, hair & laser treatments in Thane.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service.html">Treatments</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="blog.html">Blogs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><a href="mailto:customer@email.com">customer@email.com</a></li>
+            <li><a href="tel:+9108108117530">+91 081081 17530</a></li>
+            <p class="address">Address: 3rd Floor, Chittaranjan Tower, 301, beside Akshardham Temple, near Hiranandani
+              Hospital Road, Hariom Nagar, Hiranandani Gardens, Ramabai Ambedkar Nagar, Powai, Mumbai, Maharashtra
+              400076</p>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Skin, Hair & Laser Clinic. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/9108108117530"
+    class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.894 3.686z" />
+    </svg>
+  </a>
+
+  <!-- Phone Call Floating Button -->
+  <div id="phone-call-button" class="floating-contact-button">
+    <a href="tel:+9108108117530" class="phone-button" title="Call us now">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="phone-icon">
+        <path
+          d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+      </svg>
+      <span class="button-text">Call Now</span>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize AOS (Animate On Scroll)
+      AOS.init({
+        duration: 1200,
+        once: true,
+        offset: 100
+      });
+
+      // Enhanced Lightbox Functionality
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      if (lightbox && lightboxImg && lightboxClose) {
+        document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+          img.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+            document.body.style.overflow = 'hidden';
+
+            // Add keyboard navigation
+            document.addEventListener('keydown', handleLightboxKeydown);
+          });
+        });
+
+        function closeLightbox() {
+          lightbox.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          document.removeEventListener('keydown', handleLightboxKeydown);
+        }
+
+        function handleLightboxKeydown(e) {
+          if (e.key === 'Escape') {
+            closeLightbox();
+          }
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+      }
+
+      // Scroll Progress Bar
+      const progressFill = document.getElementById('progressFill');
+      if (progressFill) {
+        window.addEventListener('scroll', () => {
+          const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+          progressFill.style.width = scrolled + '%';
+        });
+      }
+
+      // Parallax Effect for Hero
+      const hero = document.querySelector('.gallery-hero');
+      if (hero) {
+        window.addEventListener('scroll', () => {
+          const scrolled = window.scrollY;
+          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+      }
+
+      // Intersection Observer for gallery items
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      if (galleryItems.length > 0) {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const galleryObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, observerOptions);
+
+        galleryItems.forEach(item => {
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(30px)';
+          item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          galleryObserver.observe(item);
+        });
+      }
+
+      // Video Reels Functionality
+      const videoReelItems = document.querySelectorAll('.video-reel-item');
+      let currentPlayingVideo = null;
+
+      if (videoReelItems.length > 0) {
+        // Initialize video functionality
+        function initVideoReels() {
+          videoReelItems.forEach(item => {
+            const video = item.querySelector('.reel-video');
+            const playOverlay = item.querySelector('.play-overlay');
+            const videoContainer = item.querySelector('.video-container');
+
+            if (!video) return;
+
+            // Set video attributes
+            video.muted = true;
+            video.loop = true;
+            video.preload = 'metadata';
+
+            // Add click event to play/pause video
+            videoContainer.addEventListener('click', function (e) {
+              e.preventDefault();
+              toggleVideo(item, video);
+            });
+
+            // Handle video events
+            video.addEventListener('loadstart', function () {
+              item.classList.add('loading');
+            });
+
+            video.addEventListener('canplay', function () {
+              item.classList.remove('loading');
+            });
+
+            video.addEventListener('play', function () {
+              item.classList.add('playing');
+            });
+
+            video.addEventListener('pause', function () {
+              item.classList.remove('playing');
+            });
+
+            video.addEventListener('ended', function () {
+              item.classList.remove('playing');
+              if (currentPlayingVideo === video) {
+                currentPlayingVideo = null;
+              }
+            });
+
+            // Handle video errors
+            video.addEventListener('error', function (e) {
+              console.warn('Video loading error:', e);
+              item.classList.remove('loading');
+              // Hide play button if video can't load
+              const playButton = item.querySelector('.play-button');
+              if (playButton) {
+                playButton.style.opacity = '0.5';
+              }
+            });
+
+            // Hover effects
+            item.addEventListener('mouseenter', function () {
+              if (!item.classList.contains('playing')) {
+                // Preload video on hover for better UX
+                if (video.readyState < 2) {
+                  video.load();
+                }
+              }
+            });
+
+            item.addEventListener('mouseleave', function () {
+              // Optional: pause video when mouse leaves (uncomment if desired)
+              // if (item.classList.contains('playing')) {
+              //     video.pause();
+              // }
+            });
+          });
+        }
+
+        // Toggle video play/pause
+        function toggleVideo(item, video) {
+          if (!video) return;
+
+          if (video.paused) {
+            // Pause any currently playing video
+            if (currentPlayingVideo && currentPlayingVideo !== video) {
+              currentPlayingVideo.pause();
+            }
+
+            // Play the clicked video
+            const playPromise = video.play();
+
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  currentPlayingVideo = video;
+                })
+                .catch(error => {
+                  console.warn('Video play failed:', error);
+                  item.classList.remove('playing');
+                });
+            }
+          } else {
+            // Pause the video
+            video.pause();
+            if (currentPlayingVideo === video) {
+              currentPlayingVideo = null;
+            }
+          }
+        }
+
+        // Pause all videos function
+        function pauseAllVideos() {
+          videoReelItems.forEach(item => {
+            const video = item.querySelector('.reel-video');
+            if (video && !video.paused) {
+              video.pause();
+            }
+          });
+          currentPlayingVideo = null;
+        }
+
+        // Handle visibility change (pause videos when tab is not visible)
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) {
+            pauseAllVideos();
+          }
+        });
+
+        // Handle scroll events (optional: pause videos when they're out of view)
+        function handleVideoScroll() {
+          if (currentPlayingVideo) {
+            const videoItem = currentPlayingVideo.closest('.video-reel-item');
+            const rect = videoItem.getBoundingClientRect();
+            const isVisible = (
+              rect.top < window.innerHeight &&
+              rect.bottom > 0
+            );
+
+            // Pause video if it's not visible
+            if (!isVisible) {
+              currentPlayingVideo.pause();
+            }
+          }
+        }
+
+        // Throttled scroll handler for videos
+        let videoScrollTimeout;
+        window.addEventListener('scroll', function () {
+          if (videoScrollTimeout) {
+            clearTimeout(videoScrollTimeout);
+          }
+          videoScrollTimeout = setTimeout(handleVideoScroll, 100);
+        });
+
+        // Handle keyboard events
+        document.addEventListener('keydown', function (e) {
+          // ESC key pauses all videos (but not if lightbox is open)
+          if (e.key === 'Escape' && (!lightbox || lightbox.style.display === 'none')) {
+            pauseAllVideos();
+          }
+
+          // Spacebar toggles current video
+          if (e.key === ' ' || e.key === 'Spacebar') {
+            if (currentPlayingVideo) {
+              e.preventDefault();
+              const item = currentPlayingVideo.closest('.video-reel-item');
+              toggleVideo(item, currentPlayingVideo);
+            }
+          }
+        });
+
+        // Initialize intersection observer for lazy loading videos
+        function initVideoIntersectionObserver() {
+          const options = {
+            root: null,
+            rootMargin: '100px',
+            threshold: 0.1
+          };
+
+          const videoObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const video = entry.target.querySelector('.reel-video');
+                if (video && video.readyState < 2) {
+                  video.load();
+                }
+              }
+            });
+          }, options);
+
+          videoReelItems.forEach(item => {
+            videoObserver.observe(item);
+          });
+        }
+
+        // Mobile touch handling for videos
+        function initMobileTouch() {
+          let touchStartTime = 0;
+
+          videoReelItems.forEach(item => {
+            const videoContainer = item.querySelector('.video-container');
+
+            videoContainer.addEventListener('touchstart', function (e) {
+              touchStartTime = Date.now();
+            });
+
+            videoContainer.addEventListener('touchend', function (e) {
+              const touchEndTime = Date.now();
+              const touchDuration = touchEndTime - touchStartTime;
+
+              // Only treat as click if touch was brief (not a scroll)
+              if (touchDuration < 300) {
+                e.preventDefault();
+                const video = item.querySelector('.reel-video');
+                toggleVideo(item, video);
+              }
+            });
+          });
+        }
+
+        // Add loading states and error handling for videos
+        function addVideoErrorHandling() {
+          videoReelItems.forEach(item => {
+            const video = item.querySelector('.reel-video');
+            if (!video) return;
+
+            // Create loading indicator
+            const loadingIndicator = document.createElement('div');
+            loadingIndicator.className = 'video-loading';
+            loadingIndicator.innerHTML = 'Loading...';
+            item.querySelector('.video-container').appendChild(loadingIndicator);
+
+            // Create error message
+            video.addEventListener('error', function () {
+              const errorMsg = document.createElement('div');
+              errorMsg.className = 'video-error';
+              errorMsg.innerHTML = 'Video unavailable';
+              errorMsg.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            z-index: 5;
+          `;
+              item.querySelector('.video-container').appendChild(errorMsg);
+
+              // Hide play button
+              const playOverlay = item.querySelector('.play-overlay');
+              if (playOverlay) {
+                playOverlay.style.display = 'none';
+              }
+            });
+          });
+        }
+
+        // Initialize video functionality
+        initVideoReels();
+        initVideoIntersectionObserver();
+        initMobileTouch();
+        addVideoErrorHandling();
+
+        // Public API for external control
+        window.VideoReels = {
+          pauseAll: pauseAllVideos,
+          getCurrentVideo: () => currentPlayingVideo,
+          playVideo: (index) => {
+            const item = videoReelItems[index];
+            if (item) {
+              const video = item.querySelector('.reel-video');
+              toggleVideo(item, video);
+            }
+          }
+        };
+      }
+    });
+  </script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

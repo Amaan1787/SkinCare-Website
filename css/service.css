@@ -1,0 +1,313 @@
+/* === Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Tenor Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #fdfdfd;
+  
+  line-height: 1.6;
+}
+
+/* === Hero Section === */
+.treatment-villain {
+  position: relative;
+  height: 750px;
+  background: url('../images/slider/pexels-rodolfoclix-1615841.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.treatmentoverlayyyyy {
+position: absolute;
+inset: 0;
+ background: rgba(24, 23, 23, 0.4);
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 2rem;
+text-align: center;
+
+}
+
+.texttreatment {
+  color: #FFFFFF;
+}
+
+.ment {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+  
+}
+
+.tunder {
+  width: 80px;
+  height: 4px;
+  background-color: #A8C4A2;
+  margin: 0.5rem auto 1rem;
+  border-radius: 2px;
+}
+
+.treatmenttle {
+  font-size: 20px;
+   color:#fff ;
+   font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+  .ment {
+    font-size: 2rem;
+  }
+  .treatmenttle {
+    font-size: 1rem;
+  }
+}
+
+/* === Treatment Section === */
+.treatment-wrapper {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #A8C4A2 35%, #FFF 75%);
+}
+
+.treatment-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+.treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+/* === Treatment Card Styling with Gradient Hover === */
+.treatment-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid #E8E8E8;
+  border-radius: 25px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  color: #A8C4A2;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.treatment-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(107, 122, 110, 0) 0%, rgba(168, 196, 162, 0.05) 50%, rgba(212, 165, 116, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 25px;
+  z-index: 0;
+}
+
+.treatment-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,  #A8C4A2 50%, #f9f9f9 100%);
+  height: 0%;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 0 25px 25px;
+  z-index: 0;
+}
+
+.treatment-card:hover::before {
+  opacity: 1;
+}
+
+.treatment-card:hover::after {
+  height: 100%;
+  border-radius: 25px;
+}
+
+.treatment-card * {
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.treatment-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(107, 122, 110, 0.15), 0 0 0 1px rgba(168, 196, 162, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(168, 196, 162, 0.3);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.treatment-card:nth-child(odd) {
+  animation: float 6s ease-in-out infinite;
+}
+
+.treatment-card:nth-child(even) {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+/* === Image Icon Circle === */
+.treatment-img {
+  width: 90px;
+  height: 90px;
+  margin: 1.5rem auto 1rem;
+  background: linear-gradient(135deg, rgba(168, 196, 162, 0.1), rgba(212, 165, 116, 0.1));
+  border: 2px solid rgba(107, 122, 110, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.treatment-img::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #6B7A6E, #A8C4A2, #D4A574);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.treatment-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.treatment-card:hover .treatment-img {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.treatment-card:hover .treatment-img::before {
+  opacity: 1;
+}
+
+/* === Title and Text === */
+.treatment-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #2D3142;
+  font-weight: 700;
+  transition: color 0.4s ease;
+}
+
+.treatment-card:hover .treatment-title,
+.treatment-card:hover .treatment-text {
+  color: white !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.treatment-text {
+  padding: 0 1.2rem 1.8rem;
+   color: #A8C4A2;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .treatment-heading {
+    font-size: 2rem;
+  }
+  .treatment-card {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
+
+#tit {
+  color:#fff ;
+  font-size: 60px;
+}
+
+.hero-treatment-text {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  animation: fadeUp 1.5s ease forwards;
+  padding: 0 1rem;
+}
+
+.treatment-hero {
+  position: relative;
+  height: 100vh;
+  background: url('../images/2.jfif') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.treatment-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-treatment-text h1.treatment {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.treatment-underline {
+  margin: 0 auto;
+  margin-top: 0.8rem;
+  width: 80px;
+  height: 4px;
+  background-color: #A8C4A2;
+  border-radius: 4px;
+  animation: glow 2s infinite;
+}
+
+.treatment-subtitle {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  color: #eee;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .treatment-hero {
+    height: 70vh;
+  }
+  .hero-treatment-text h1.treatment {
+    font-size: 2.5rem;
+  }
+  .treatment-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+.col {
+  color: black;
+}

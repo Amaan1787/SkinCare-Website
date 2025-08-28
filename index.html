@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skin, Hair and Laser</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Bungee&family=Tenor+Sans&display=swap"
+    rel="stylesheet">
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Libre+Baskerville&family=Lato:ital,wght@0,700;1,400&family=Montserrat:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Tenor+Sans&display=swap"
+    rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/merged-styles.css" />
+
+  <!-- Scrollbar & Header Scroll Styling -->
+  <style>
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: #2c5282;
+      width: 0%;
+      z-index: 9999;
+    }
+
+    .header.scroll-down {
+      transform: translateY(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .header.scroll-up {
+      transform: translateY(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(95, 94, 94, 0.2) !important;
+      backdrop-filter: blur(10px) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .nav-links a.active {
+      text-shadow: 1.2px 0 0 black !important;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div id="preloader">
+    <div class="preloader-content">
+      <img src="images/newBuff.webp" alt="Skin Rejuvenation" />
+      <!-- <p class="preloader-text">Rejuvenating Your Glow...</p> -->
+    </div>
+  </div>
+  <!-- <div id="scroll-progress"></div> -->
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <!-- Skin, Hair & Laser Clinic -->
+        <div class="logo"></div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Treatments</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="contact.html">Contact </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Hero Section -->
+  <section class="hero-slider" id="home">
+    <div class="slide active" style="background-image: url('/images/hero-img.jpg');">
+      <div class="overlay">
+        <div class="container">
+          <div class="hero-text">
+            <button class="cta-button Appointment" style="font-weight: 600; font-family: 'Garet', sans-serif;">Book
+              Appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more slides if needed -->
+    <div class="slide" style="background-image: url('/images/hero-img2.jpg');">
+      <div class="overlay">
+        <div class="container">
+          <div class="hero-text">
+            <button class="cta-button Appointment" style="font-weight: 600; font-family: 'Garet', sans-serif;">Book
+              Appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="hero-features">
+      <div class="feature-item">
+        <i class="fas fa-user-md feature-icon"></i>
+        <div>Experienced Dermatologists</div>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-microchip feature-icon"></i>
+        <div>Advanced Technology</div>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-hand-holding-heart feature-icon"></i>
+        <div>Personalized Treatment</div>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-award feature-icon"></i>
+        <div>30+ Years Experience</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Services Section -->
+  <section class="services" id="treatments">
+    <div class="container">
+      <div class="section-title">
+        <h3>Treatments</h3>
+        <!-- <h2>What We Can Do For You</h2> -->
+        <h2>Services We Offer</h2>
+      </div>
+
+      <div class="slider-wrapper">
+        <div class="services-slider" id="servicesSlider">
+          <div class="service-card home-card">
+            <div class="service-icon">
+              <img src="images/DrSai/IMG-20250820-WA0001.jpg" alt="Anti-Aging" />
+            </div>
+            <h4>Anti-Aging</h4>
+            <p>Advanced anti-aging treatments including Modulators and GFC, fillers, and skin tightening procedures to
+              help you look
+              and feel your best.</p>
+          </div>
+          <div class="service-card home-card">
+            <div class="service-icon">
+              <img src="images/DrSai/IMG-20250820-WA0002.jpg" alt="Body Treatment" />
+            </div>
+            <h4>Skincare Guidance</h4>
+            <p>Comprehensive body care treatments to address skin concerns, improve texture, and maintain healthy,
+              radiant skin from head to toe.</p>
+          </div>
+
+          <div class="service-card home-card">
+            <div class="service-icon">
+              <img src="images/DrSai/IMG-20250820-WA0010.jpg" alt="Hair and Scalp Treatment" />
+            </div>
+            <h4>Hair and Scalp</h4>
+            <p>Specialized scalp treatments and hair restoration services to promote healthy hair growth and address
+              various scalp conditions.</p>
+          </div>
+
+          <div class="service-card home-card">
+            <div class="service-icon">
+              <img src="images/DrSai/IMG-20250820-WA0009.jpg" Laser Treatment" />
+            </div>
+            <h4>Laser Treatments</h4>
+            <p>State of the art laser treatments for hair removal, skin resurfacing, and various dermatological
+              conditions with minimal downtime.</p>
+          </div>
+
+          <div class="service-card home-card">
+            <div class="service-icon">
+              <img src="images/DrSai/injectable.jpg" alt="Beauty Surgery" />
+            </div>
+            <h4>Injectables</h4>
+            <p>Minimally invasive cosmetic procedures performed by certified professionals to enhance your natural
+              beauty safely and effectively.</p>
+          </div>
+          <div class="service-card home-card">
+            <div class="service-icon">
+              <img src="images/DrSai/elder.jpg" alt="Anti-Aging" />
+            </div>
+            <h4>Paediatric and Elderly Skin Disorders</h4>
+            <p>Advanced anti-aging treatments including Modulators and GFC, fillers, and skin tightening procedures to
+              help you look
+              and feel your best.</p>
+          </div>
+        </div>
+
+        <!-- ✅ Slider Buttons Centered Below the Slider -->
+        <div class="slider-btn-wrapper">
+          <button class="slider-btn left">&#10094;</button>
+          <button class="slider-btn right">&#10095;</button>
+        </div>
+
+        <!-- Dots for mobile view -->
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- Premium Section -->
+  <section class="premium" data-aos="fade-left">
+    <div class="container">
+      <div class="premium-content">
+        <div class="premium-text" data-aos="fade-up">
+          <h3>Premium</h3>
+          <h2>Advanced Skin & Hair Care Solutions</h2>
+          <p>Keep working with the best technology to ensure optimal and long-term skin benefits.</p>
+          <ul class="premium-features">
+            <li>Booking Priority</li>
+            <li>Products Inclusive - Skincare Treatment</li>
+            <li>Premium Guidance</li>
+          </ul>
+          <button class="cta-button">See Package</button>
+        </div>
+        <div class="premium-image" data-aos="zoom-in">
+          <img src="images/4.jfif" alt="Premium Treatment" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" data-aos="fade-up">
+    <div class="container">
+      <div class="testimonials-content">
+        <div class="testimonials-text" data-aos="fade-up">
+          <h2>What Our Clients Say</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card" data-aos="flip-left" data-aos-delay="100">
+            <h4>Kerry, 29</h4>
+            <div class="stars">★★★★★</div>
+            <p>Amazing results from my facial treatment. The staff was professional and the clinic environment was very
+              clean and comfortable.</p>
+          </div>
+          <div class="testimonial-card" data-aos="flip-left" data-aos-delay="200">
+            <h4>Mark, 31</h4>
+            <div class="stars">★★★★★</div>
+            <p>Great experience with hair restoration treatment. Highly recommend this clinic for anyone looking for
+              professional dermatological care.</p>
+          </div>
+          <div class="testimonial-card" data-aos="flip-left" data-aos-delay="300">
+            <h4>Christina, 23</h4>
+            <div class="stars">★★★★★</div>
+            <p>Excellent service and results! The dermatologists are very knowledgeable and helped me achieve the skin I
+              always wanted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation Section -->
+  <section class="consultation" id="contact" data-aos="fade-up">
+    <div class="container">
+      <div class="consultation-content">
+
+        <!-- ✅ LEFT SIDE: Image + Motivational Info -->
+
+        <!-- ✅ RIGHT SIDE: Original Form -->
+        <div class="consultation-form">
+          <h2>BOOK CONSULTATION</h2>
+          <p>Get personalized expert advice from dermatologists with over 8+ years of combined experience</p>
+          <form>
+            <div class="form-grid">
+              <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" placeholder="Phone Number" required>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+              </div>
+              <div class="form-group">
+                <select required>
+                  <option value="">Select Service</option>
+                  <option value="face">Face Treatment</option>
+                  <option value="body">Body Treatment</option>
+                  <option value="hair">Hair & Scalp</option>
+                  <option value="surgery">Beauty Surgery</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Additional message or questions"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        </div>
+
+        <div class="consultation-image enhanced-left">
+          <img src="images/DrSai/consultation.jpg" alt="Consultation" />
+          <div class="overlay-info">
+            <blockquote>“Expert care for your skin, hair, and confidence.”</blockquote>
+            <ul class="highlight-points">
+              <li>🌟 Advanced Laser & Aesthetic Technology</li>
+              <li>🏥 Trusted Clinic with High Satisfaction</li>
+              <li>🧴 Tailored Treatments for Every Skin Type</li>
+              <li>📅 Book Anytime — Quick & Hassle-Free</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h2>Skin, Hair & Laser Clinic</h2>
+          <p>Your trusted destination for advanced skin, hair & laser treatments in Thane.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service.html">Treatments</a></li>
+            <!-- <li><a href="#experts">Experts</a></li> -->
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="blog.html">Blogs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><a href="mailto:customer@email.com">customer@email.com</a></li>
+            <li><a href="tel:+918108117530">+91 081081 17530</a></li>
+            <p class="address">Address: 3rd Floor, Chittaranjan Tower, 301, beside Akshardham Temple, near Hiranandani
+              Hospital Road, Hariom Nagar, Hiranandani Gardens, Ramabai Ambedkar Nagar, Powai, Mumbai, Maharashtra
+              400076</p>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Skin, Hair & Laser Clinic. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/9108108117530"
+    class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.894 3.686z" />
+    </svg>
+  </a>
+
+  <!-- Phone Call Floating Button -->
+  <div id="phone-call-button" class="floating-contact-button">
+    <a href="tel:+9108108117530" class="phone-button" title="Call us now">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="phone-icon">
+        <path
+          d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+      </svg>
+      <span class="button-text">Call Now</span>
+    </a>
+  </div>
+
+  <!-- Add this HTML structure just before your closing </body> tag -->
+
+  <!-- Popup Consultation Form -->
+  <div class="popup-overlay" id="consultationPopup">
+    <div class="popup-container">
+      <button class="popup-close" onclick="closePopup()">&times;</button>
+
+      <div class="popup-consultation-form">
+        <h2>BOOK CONSULTATION</h2>
+        <p>Get personalized expert advice from dermatologists with over 8+ years of combined experience</p>
+
+        <form id="popupConsultationForm">
+          <div class="popup-form-grid">
+            <div class="popup-form-group">
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="popup-form-group">
+              <input type="tel" name="phone" placeholder="Phone Number" required>
+            </div>
+          </div>
+
+          <div class="popup-form-grid">
+            <div class="popup-form-group">
+              <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="popup-form-group">
+              <select name="service" required>
+                <option value="">Select Service</option>
+                <option value="face">Face Treatment</option>
+                <option value="body">Body Treatment</option>
+                <option value="hair">Hair & Scalp</option>
+                <option value="surgery">Beauty Surgery</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="popup-form-group full-width">
+            <textarea name="message" placeholder="Additional message or questions"></textarea>
+          </div>
+
+          <button type="submit" class="popup-submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Preloader, Header, Hero, Services, Premium, Testimonials, Consultation, Footer, etc. -->
+  <!-- 📌 Paste your full existing HTML content here as-is -->
+  <!-- No changes needed inside your HTML content structure -->
+
+  <!-- ✅ Include the following scripts at the end of body -->
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 2000,
+      once: true
+    });
+  </script>
+
+  <!-- Scroll Progress, Header Scroll, and Treatment Slider Fix -->
+  <!-- hide and show functionality of navBar -->
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // === Scroll Progress Bar ===
+      const progress = document.getElementById('scroll-progress');
+      if (progress) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.body.scrollHeight - window.innerHeight;
+          const percent = (scrollTop / docHeight) * 100;
+          progress.style.width = percent + '%';
+        });
+      }
+
+      // === Header Scroll Show/Hide ===
+      let lastScroll = 0;
+      const header = document.querySelector('.header');
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll <= 0) {
+          header.classList.remove("scroll-up");
+          return;
+        }
+        if (currentScroll > lastScroll && !header.classList.contains("scroll-down")) {
+          header.classList.remove("scroll-up");
+          header.classList.add("scroll-down");
+        } else if (currentScroll < lastScroll && header.classList.contains("scroll-down")) {
+          header.classList.remove("scroll-down");
+          header.classList.add("scroll-up");
+        }
+        lastScroll = currentScroll;
+      });
+
+      // === Treatment Slider Fix (Right Card Issue Solved) ===
+      const slider = document.getElementById("servicesSlider");
+      const leftBtn = document.querySelector(".slider-btn.left");
+      const rightBtn = document.querySelector(".slider-btn.right");
+      const dotsContainer = document.getElementById("sliderDots");
+      const cards = slider.querySelectorAll(".service-card");
+
+      let scrollAmount = 0;
+      let cardWidthWithGap = cards[0].offsetWidth + 40;
+      let visibleWidth = slider.offsetWidth;
+      let totalWidth = slider.scrollWidth;
+      let maxScroll = totalWidth - visibleWidth;
+
+      function updateScrollAmount(direction) {
+        scrollAmount += direction * visibleWidth;
+        scrollAmount = Math.max(0, Math.min(scrollAmount, maxScroll));
+
+        slider.scrollTo({
+          left: scrollAmount,
+          behavior: "smooth"
+        });
+
+        updateDots();
+      }
+
+      function createDots() {
+        const totalDots = Math.ceil(totalWidth / visibleWidth);
+        dotsContainer.innerHTML = "";
+
+        for (let i = 0; i < totalDots; i++) {
+          const dot = document.createElement("button");
+          dot.addEventListener("click", () => {
+            scrollAmount = i * visibleWidth;
+            slider.scrollTo({
+              left: scrollAmount,
+              behavior: "smooth"
+            });
+            updateDots();
+          });
+          dotsContainer.appendChild(dot);
+        }
+
+        updateDots();
+      }
+
+      function updateDots() {
+        const dots = dotsContainer.querySelectorAll("button");
+        const activeIndex = Math.round(scrollAmount / visibleWidth);
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle("active", idx === activeIndex);
+        });
+      }
+      function autoSlide() {
+        setInterval(() => {
+          if (scrollAmount + visibleWidth >= totalWidth - 1) {
+            scrollAmount = 0;
+          } else {
+            scrollAmount += visibleWidth;
+          }
+
+          slider.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth"
+          });
+          updateDots();
+        }, 15000); // 15 seconds for all screen sizes
+      }
+
+      function recalculateSlider() {
+        cardWidthWithGap = cards[0].offsetWidth + 30;
+        visibleWidth = slider.offsetWidth;
+        totalWidth = slider.scrollWidth;
+        maxScroll = totalWidth - visibleWidth;
+        scrollAmount = 0;
+        createDots();
+      }
+
+      if (leftBtn && rightBtn) {
+        leftBtn.addEventListener("click", () => updateScrollAmount(-1));
+        rightBtn.addEventListener("click", () => updateScrollAmount(1));
+      }
+
+      window.addEventListener("resize", recalculateSlider);
+
+      recalculateSlider();
+      autoSlide();
+    });
+  </script> -->
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 500);
+        }, 500); // Slight delay
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // ===== FIXED HEADER FUNCTIONALITY =====
+      const header = document.querySelector('.header');
+
+      // Keep header always visible at top
+      if (header) {
+        header.style.position = 'fixed';
+        header.style.top = '0';
+        header.style.left = '0';
+        header.style.right = '0';
+        header.style.zIndex = '1000';
+        header.classList.add('show');
+        header.classList.remove('hide');
+      }
+
+      // ===== SCROLL PROGRESS BAR FUNCTIONALITY =====
+      const progress = document.getElementById('scroll-progress');
+      const progressFill = document.getElementById('progressFill');
+      const progressBar = document.querySelector('.progress-bar');
+
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+
+        // Handle multiple progress bar elements
+        if (progress) {
+          const percent = (scrollTop / docHeight) * 100;
+          progress.style.width = percent + '%';
+        }
+
+        if (progressFill) {
+          const scrolled = (currentScroll / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+          progressFill.style.width = scrolled + '%';
+        }
+
+        // Show/hide progress bar based on scroll position
+        if (progressBar) {
+          if (currentScroll > 100) {
+            progressBar.style.opacity = '1';
+          } else {
+            progressBar.style.opacity = '0';
+          }
+        }
+      });
+
+      // ===== TREATMENT SLIDER FUNCTIONALITY =====
+      const slider = document.getElementById("servicesSlider");
+      const leftBtn = document.querySelector(".slider-btn.left");
+      const rightBtn = document.querySelector(".slider-btn.right");
+      const dotsContainer = document.getElementById("sliderDots");
+
+      if (slider) {
+        const cards = slider.querySelectorAll(".service-card");
+
+        let scrollAmount = 0;
+        let cardWidthWithGap = cards[0] ? cards[0].offsetWidth + 40 : 0;
+        let visibleWidth = slider.offsetWidth;
+        let totalWidth = slider.scrollWidth;
+        let maxScroll = totalWidth - visibleWidth;
+
+        function updateScrollAmount(direction) {
+          scrollAmount += direction * visibleWidth;
+          scrollAmount = Math.max(0, Math.min(scrollAmount, maxScroll));
+
+          slider.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth"
+          });
+
+          updateDots();
+        }
+
+        function createDots() {
+          if (!dotsContainer) return;
+
+          const totalDots = Math.ceil(totalWidth / visibleWidth);
+          dotsContainer.innerHTML = "";
+
+          for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement("button");
+            dot.addEventListener("click", () => {
+              scrollAmount = i * visibleWidth;
+              slider.scrollTo({
+                left: scrollAmount,
+                behavior: "smooth"
+              });
+              updateDots();
+            });
+            dotsContainer.appendChild(dot);
+          }
+
+          updateDots();
+        }
+
+        function updateDots() {
+          if (!dotsContainer) return;
+
+          const dots = dotsContainer.querySelectorAll("button");
+          const activeIndex = Math.round(scrollAmount / visibleWidth);
+          dots.forEach((dot, idx) => {
+            dot.classList.toggle("active", idx === activeIndex);
+          });
+        }
+
+        function autoSlide() {
+          setInterval(() => {
+            if (scrollAmount + visibleWidth >= totalWidth - 1) {
+              scrollAmount = 0;
+            } else {
+              scrollAmount += visibleWidth;
+            }
+
+            slider.scrollTo({
+              left: scrollAmount,
+              behavior: "smooth"
+            });
+            updateDots();
+          }, 15000); // 15 seconds for all screen sizes
+        }
+
+        function recalculateSlider() {
+          if (cards[0]) {
+            cardWidthWithGap = cards[0].offsetWidth + 30;
+          }
+          visibleWidth = slider.offsetWidth;
+          totalWidth = slider.scrollWidth;
+          maxScroll = totalWidth - visibleWidth;
+          scrollAmount = 0;
+          createDots();
+        }
+
+        // Event listeners for slider buttons
+        if (leftBtn && rightBtn) {
+          leftBtn.addEventListener("click", () => updateScrollAmount(-1));
+          rightBtn.addEventListener("click", () => updateScrollAmount(1));
+        }
+
+        // Window resize handler
+        window.addEventListener("resize", recalculateSlider);
+
+        // Initialize slider
+        recalculateSlider();
+        autoSlide();
+      }
+    });
+  </script>
+  <!-- Optimized Hero Slider (Top Banner Section) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".hero-slider .slide");
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.remove("active");
+          if (i === index) slide.classList.add("active");
+        });
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      showSlide(currentIndex);
+      setInterval(nextSlide, 5000);
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const links = document.querySelectorAll(".nav-link");
+      const currentUrl = window.location.pathname;
+
+      links.forEach(link => {
+        if (currentUrl.endsWith(link.getAttribute("href"))) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+  <script>
+    // Set active navigation item based on current page
+    document.addEventListener('DOMContentLoaded', function () {
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const linkPage = link.getAttribute('href');
+
+        // Check if current page matches the link
+        if (currentPage === linkPage ||
+          (currentPage === 'service.html' && linkPage === 'service.html') ||
+          (currentPage === '' && linkPage === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>

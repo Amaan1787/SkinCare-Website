@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/merged-styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Bungee&family=Tenor+Sans&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Tenor+Sans&display=swap"
+    rel="stylesheet">
+  <title>Blogs - Skin, Hair & Laser Clinic</title>
+  <style>
+    @font-face {
+      font-family: "Garet";
+      src: url("../fonts/Garet-Book.woff2") format("woff2"),
+        url("../fonts/Garet-Book.woff") format("woff"),
+        url("../fonts/Garet-Book.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Garet";
+      src: url("../fonts/Garet-Heavy.woff2") format("woff2"),
+        url("../fonts/Garet-Heavy.woff") format("woff"),
+        url("../fonts/Garet-Heavy.ttf") format("truetype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* font-family: "Tenor Sans", sans-serif; */
+    }
+
+    body {
+      font-family: "Tenor Sans", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .blog-hero {
+      position: relative;
+      height: 100vh;
+      background: url('/images/2.jfif') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+
+    }
+
+    .blog-hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(24, 23, 23, 0.4);
+      /* dark overlay */
+      z-index: 1;
+
+    }
+
+    .blog-hero .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      animation: fadeUp 1.5s ease forwards;
+      padding: 0 1rem;
+
+
+    }
+
+    .hero-heading {
+      font-size: 3rem;
+      font-weight: normal;
+      text-shadow: 1.2px 0 0 white;
+      font-family: "Garet", sans-serif;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .hero-heading::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -15px;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: #A8C4A2;
+      border-radius: 4px;
+      animation: glow 2s infinite;
+    }
+
+    .hero-subtitle {
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      color: #fff;
+      letter-spacing: 1px;
+      font-family: "PT Serif", serif;
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 6px #A8C4A2;
+      }
+
+      50% {
+        box-shadow: 0 0 12px #A8C4A2;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero {
+        height: 70vh;
+      }
+
+      .hero-heading {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    .blogs-section {
+      padding: 4rem 2rem;
+      background-color: #f7fafc;
+    }
+
+    .section-heading {
+      text-align: center;
+      font-size: 2.5rem;
+      color: black;
+      font-weight: normal;
+      text-shadow: 1.2px 0 0 black;
+      font-family: "Garet", sans-serif;
+      margin-bottom: 3rem;
+    }
+
+    .blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 6rem;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .blog-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #2c5282;
+      text-shadow: 1.2px 0 0 #2c5282;
+      font-family: "Garet", sans-serif;
+      font-weight: normal;
+    }
+
+    .blog-content p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: "PT Serif", serif;
+    }
+
+    .read-more {
+      text-decoration: none;
+      background: linear-gradient(135deg, #AAC9A4, #fff);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: inline-block;
+      transition: background 0.3s ease;
+      margin-top: auto;
+      cursor: pointer;
+    }
+
+    .read-more:hover {
+      background: linear-gradient(135deg, #AAC9A4, #6B7A6E);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(107, 122, 110, 0.2);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 20px;
+      position: relative;
+    }
+
+    .modal-content h3 {
+      color: #2c5282;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+    }
+
+    .modal-content p {
+      color: #444;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Tenor+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div id="preloader">
+    <div class="preloader-content">
+      <img src="images/newBuff.webp" alt="Skin Rejuvenation" />
+      <!-- <p class="preloader-text">Rejuvenating Your Glow...</p> -->
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="logo"></div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Treatments</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html" class="active">Blogs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Updated Blog Hero Section -->
+  <section class="blog-hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-heading">Blogs</h1>
+      <p class="hero-subtitle">Expert Skin, Hair & Laser Treatments. Book Your Consultation Today.</p>
+    </div>
+  </section>
+
+  <section class="blogs-section">
+    <div class="container">
+      <h2 class="section-heading">Latest Blogs</h2>
+      <div class="blogs-grid">
+
+        <div class="blog-card">
+          <img src="images/1.jfif" alt="Skin Care Tips">
+          <div class="blog-content">
+            <h3>Top 5 Skin Care Tips for Glowing Skin</h3>
+            <p>Learn simple yet effective skin care routines that dermatologists swear by. Maintain a healthy glow
+              naturally.</p>
+            <span class="read-more" data-title="Top 5 Skin Care Tips for Glowing Skin" data-id="blog1">Read More</span>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img src="images/9.jfif" alt="Hair Fall Solutions">
+          <div class="blog-content">
+            <h3>How to Control Hair Fall in Monsoon Season</h3>
+            <p>Discover the root causes of seasonal hair fall and actionable tips to reduce hair loss during humid
+              months.</p>
+            <span class="read-more" data-id="blog2" data-title="How to Control Hair Fall in Monsoon Season">Read
+              More</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="blogModal">
+    <div class="modal-content">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <h3 id="modalTitle">Title</h3>
+      <div id="modalText">Full content will appear here.</div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h2>Skin, Hair & Laser Clinic</h2>
+          <p>Your trusted destination for advanced skin, hair & laser treatments in Thane.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="service.html">Treatments</a></li>
+            <!-- <li><a href="#experts">Experts</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="blog.html">Blogs</a></li> -->
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><a href="mailto:customer@email.com">customer@email.com</a></li>
+            <li><a href="tel:+9108108117530">+91 081081 17530</a></li>
+            <p class="address">Address: 3rd Floor, Chittaranjan Tower, 301, beside Akshardham Temple, near Hiranandani
+              Hospital Road, Hariom Nagar, Hiranandani Gardens, Ramabai Ambedkar Nagar, Powai, Mumbai, Maharashtra
+              400076</p>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Skin, Hair & Laser Clinic. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/9108108117530"
+    class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.894 3.686z" />
+    </svg>
+  </a>
+
+  <!-- Phone Call Floating Button -->
+  <div id="phone-call-button" class="floating-contact-button">
+    <a href="tel:+9108108117530" class="phone-button" title="Call us now">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="phone-icon">
+        <path
+          d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+      </svg>
+      <span class="button-text">Call Now</span>
+    </a>
+  </div>
+
+  <script src="js/index.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    const modal = document.getElementById('blogModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalText = document.getElementById('modalText');
+    const modalClose = document.getElementById('modalClose');
+
+    const blogContents = {
+      blog1: `
+        <img src="images/1.jfif" alt="Tip 1 Image" />
+        <p>Skin issues like acne, pigmentation, premature aging, and dullness can be frustrating and persistent despite over-the-counter solutions.</p>
+        <img src="images/3.jfif" alt="Tip 2 Image" />
+        <p>With professional treatments like PRP, laser therapy, and chemical peels, clinics can deliver long-lasting skin improvements.</p>
+      `,
+      blog2: `
+        <img src="images/9.jfif" />
+        <p>Humidity weakens hair follicles. Use anti-fungal shampoos, dry your hair completely, avoid tying wet hair, and eat protein-rich foods.</p>
+        <img src="images/3.jfif" alt="Tip 2 Image" />
+        <p>Humidity weakens hair follicles. Use anti-fungal shampoos, dry your hair completely, avoid tying wet hair, and eat protein-rich foods.</p>
+      `
+    };
+
+    document.querySelectorAll('.read-more').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        const title = btn.getAttribute('data-title');
+        modalTitle.textContent = title;
+        modalText.innerHTML = blogContents[id] || 'No content found.';
+        modal.style.display = 'flex';
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>
